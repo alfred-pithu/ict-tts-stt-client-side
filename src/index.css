@@ -14,4 +14,7 @@
   p{
     @apply text-2xl font-extrabold
   }
+  li{
+    @apply font-bold my-3  
+  }
 }
