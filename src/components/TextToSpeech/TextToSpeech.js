@@ -1,25 +1,17 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 const TextToSpeech = () => {
 
+    const [url, setUrl] = useState('');
+    const [inputText, setInputText] = useState('')
+
     const getAudio = (e) => {
+        setInputText(' ')
         e.preventDefault()
         const input = e.target.inputText.value;
-        console.log(input);
+        setInputText(input)
 
-        // here I will fetch the response by sending the text //
-
-        // fetch('', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'Application/json',
-        //     },
-        //     body: JSON.stringify(textInput)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data)
-        //     })
     }
 
 
@@ -37,6 +29,19 @@ const TextToSpeech = () => {
                 <br />
 
                 <input type='submit' className="btn btn-sm absolute right-0" value='Generate Audio'></input>
+
+                {
+                    inputText ?
+                        <div className='bg-gray-600 border mt-10'>
+                            <audio controls>
+                                <source src={`http://localhost:5000/tts/${inputText}`} type="audio/ogg" />
+                                <source src={`http://localhost:5000/tts/${inputText}`} type="audio/mpeg" />
+                                Your browser does not support the audio tag.
+                            </audio>
+                        </div>
+                        :
+                        <p>Nothing yet</p>
+                }
 
 
 

@@ -21,6 +21,8 @@ function App() {
         <Route path="/tts" element={<TextToSpeech></TextToSpeech>}></Route>
         <Route path="/stt" element={<SpeechToText></SpeechToText>}></Route>
 
+
+
         <Route path="admin" element={<AdminPanel></AdminPanel>}>
 
           <Route index element={<TtsAdmin></TtsAdmin>}></Route>
