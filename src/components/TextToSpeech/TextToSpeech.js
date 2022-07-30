@@ -7,7 +7,6 @@ const TextToSpeech = () => {
     const [inputText, setInputText] = useState('')
 
     const getAudio = (e) => {
-        setInputText(' ')
         e.preventDefault()
         const input = e.target.inputText.value;
         setInputText(input)
